@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* function foo() {
+            let a = "iam foo";
+            console.log(a);
+
+            function boo(){
+                let b= "iam boo"
+                console.log(b);
+            }
+            boo()
+            function coo(){
+                let c = "iam coo"
+                console.log(c);
+            }
+            coo()
+        }
+          foo();*/
+
+         /* function foo() {
+            let a = "iam foo";
+            console.log(a);
+
+            function boo(){
+                let b= "iam boo"
+                console.log(b);
+            }
+            function coo(){
+                let c = "iam coo"
+                console.log(c);
+            }
+            return {boo,coo}
+    
+        }
+        
+        const {boo,coo} = foo();
+         console.log("===================")
+         boo();
+         console.log("===================")
+         coo();
+         boo();
+         coo();*/ //==============================================
+
+
+        /* function sum(x){
+             return function sum10(){
+                 let y=10;
+                 return function sum20(){
+                     return x+y+20;
+                 }
+             }
+         }
+
+         let add10 = sum(5)
+         //console.log(add10);
+       let add20 = add10();
+        console.log(add20());
+        console.log(sum(5)()()); */ //========================
+
+       /* function foo(){
+            if(arguments[0]>=0){
+                console.log("i", arguments[0]);
+                arguments.callee(arguments[0]-=1)
+            }
+        }
+        
+        foo(20);*/ //=============================
+
+
+       /* function add(x){
+            return function add(y){
+                return function (z){
+                    return x+y+z
+                }
+            }
+        }
+        console.log(add(5)(15)(30));*/ //=================
+
+        function countDown(number){
+            console.log(number);
+            const newNumber = number-1;
+
+            if(newNumber>0){
+                countDown(newNumber);
+            }
+        }
+        countDown(4);
+    </script>
+</body>
+</html>

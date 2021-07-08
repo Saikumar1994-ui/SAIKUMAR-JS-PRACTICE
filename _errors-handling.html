@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* alert("Welcome to Excemptions");
+        alert("Thank U")*/
+//========================================================
+       /* try{
+        aler("Welcome to Excemptions");
+        }
+        catch(e){
+            alert(e.description)
+        }
+        alert("Thank U")*/
+//=============================================================
+
+        var x= prompt("Enter required Number(s)","500");
+        try
+        {
+        alert(eval(x));
+        } 
+        catch(e)
+        {
+            alert("Sorry alphabets involid:" +e.description);
+        }
+        finally
+        {
+            alert('finallyblock always get execured');
+        }
+        alert('Succesfuly Executed');
+        alert("thank U");
+    </script>
+</body>
+</html>

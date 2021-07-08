@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onclock images</title>
+    <style>
+        #container{
+            width: 250px;
+            height: 300px;
+            background-color: burlywood;
+            border:2px solid chartreuse;
+
+        }
+        li{
+            display: inline-block;
+            border: solid palevioletred;
+            padding: 5px, 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="slot" alt="showing iamg" width="250px" height="300px">
+    </div>
+    <di>
+        <ul>
+            <li><img src="../images/smileface1.jpg" width="250px" height="300px" onclick="displayImage('face1')"></li>
+            <li><img src="../images/smileface2.jpg" width="250px" height="300px" onclick="displayImage('face2')"></li>
+            <li><img src="../images/smileface3.jpg" width="250px" height="300px" onclick="displayImage('face3')"></li>
+            <li><img src="../images/smileface4.jpg" width="250px" height="300px" onclick="displayImage('face4')"></li>
+            <li><img src="../images/smileface5.jpg" width="250px" height="300px" onclick="displayImage('face5')"></li>
+            <li><img src="../images/smileface6.jpg" width="250px" height="300px" onclick="displayImage('face6')"></li>
+        </ul>
+    </di>
+
+    <script>
+        function displayImage(imageName){
+            document.getElementById("slot").src="../images/smile"+imageName+".jpg";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News portal</title>
+    <style>
+        li {
+            overflow: hidden;
+            margin: 10px;
+            width: 90%;
+            list-style-type: none;
+        }
+
+        .newsArticles {
+            margin-right: 20px;
+            border: 2px solid #7abbdb;
+            background-color: transparent;
+            border-radius: 2%;
+            padding: 2px;
+        }
+
+        .article-img {
+            text-align: center;
+        }
+
+        .article-img img {
+            height: 70%;
+            width: 90%;
+            margin: 10px;
+        }
+
+        .subMain {
+            padding: .8rem 0 2rem;
+            text-align: center;
+        }
+
+        .title strong {
+            display: block;
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+            color: #337ab7;
+            border-bottom: 2px solid rgb(2, 22, 26);
+            padding-bottom: 5px;
+        }
+
+        .title strong:hover {
+            color: #021b30fb;
+        }
+
+        .details strong {
+            color: rgb(238, 17, 17);
+            font-size: .9rem;
+            font-weight: 700;
+            letter-spacing: .2rem;
+            margin: .2rem 0;
+            float: left;
+        }
+        .details b{
+            color: blue;
+        }
+
+        .details {
+            text-align: left;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            overflow: hidden;
+        }
+
+        a:hover {
+            color: #021322;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        function newAPIdata() {
+            return new Promise (function (resolve, reject) {
+                const url = 'https://newsapi.org/v2/everything?q=Apple&from=2021-04-22&sortBy=popularity&apiKey=7e47722211b4477e9a6a8fbcc80eb763';
+                const HTTP = new XMLHttpRequest();
+
+                HTTP.open('Get', url);
+                HTTP.responceType = 'json';
+                HTTP.send();
+
+
+                HTTP.onreadystatechange = function (params) {
+                    if (this.readyState == 4 && this.state == 200) {
+                        resolve(HTTP.responce);
+
+                    } else if (this.status == 404) {
+                        reject(HTTP.responce);
+                    }
+                }
+            });
+        }
+
+        let ul = (articles) => {
+            let li = "";
+            for (let i = 0; i <= articles.length - 1; i++) {
+                let a = articles[i];
+                console.log(a);
+                
+
+                li += `<li>
+                                <div class="newsArticles">
+                                    <p class="title"<strong>${a.title}</strong></p> 
+                                        <div class="article-img">
+                                            <img src='${a.urlToImage}'>
+                                        </div>
+                                    <div class="subMain"> 
+                                            <div class="details">
+                                                <p><span><strong>author:</strong></span> ${a.author}</p>
+                                                <p><span><strong>SourceName:</strong></span> <a href=" ${a.source.name}">${a.source.name}</a></p>
+                                                <p><span><strong>publishedAt:</strong></span> ${a.publishedAt}</p>
+                                                <p><span><strong>content:</strong></span>${a.content}</p> 
+                                                <p><span><strong>description:</strong></span> ${a.description}</p>
+                                            </div>
+                                        <a href=" ${a.url}">To know more click here:</a>
+                                    </div> 
+                                </div>             
+                          </li>`;
+            }
+            return `< ul > ${li}</ul >`;
+        };
+
+        function dispalyNews(articles) {
+            document.getElementsByTagName('body')[0].innerHTML = ul(articles);
+        }
+        function successCb(data) {
+            //data.json().then((newsdata)=>{
+            dispalyNews(data.articles);
+            //});
+        }
+        function errorCb(data) {
+            console.log("eb", data);
+        }
+        newAPIdata().then(successCb, errorCb);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 2px solid red;
+            padding: 20px,23px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="sname"> Name of the student</label>
+        <input type="text" id="sname" name="studentname" placeholder="enter here">
+        <button onclick="addStudent()">Enter</button>
+    </div>
+    <div id="container">
+    </div>
+
+    <script>
+        let inputElement = document.getElementById("sname");
+        let divElement =document.getElementById("container");
+        let studentList =[];
+
+        function addStudent(){
+            let inputVal = inputElement.value;
+            console.log("inputVal");
+            studentList.push(inputVal);
+            inputElement.value ="";
+            displayTable();
+        }
+
+        function removeStudent(index){
+            studentList.splice(index,1)
+            displayTable();
+
+
+        }
+
+
+        function displayTable(){
+            let row = "";
+            for(let i=0; i<=studentList.length-1; i++){
+                let removeButton = `<button onclick="removeStudent(${i})">Remove</button>`
+
+                row += `<tr>
+                             <td>${i+1}</td>
+                             <td>${studentList[i]}</td>
+                             <td>${removeButton}</td>
+                       </tr>`;
+            }
+        
+
+            let thead =`<head>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Name of the student</th>
+                                <th>Action</th>
+                            </tr>
+                        </head>`;
+
+            let tbody =`<body>${row}</body>`;  
+            let table =`<table>${thead}${tbody}</table>`; 
+            
+            divElement.innerHTML = table;
+        }
+    </script>
+    
+</body>
+</html>

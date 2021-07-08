@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News portal (API)</title>
+    
+</head>
+
+<body>
+    <div id="slot"></div>
+    <script>
+        
+        function newAPIdata() {
+            return new Promise (function(resolve,reject) {
+                const url = "https://newsapi.org/v2/everything?q=Apple&from=2021-04-22&sortBy=popularity&apiKey=7e47722211b4477e9a6a8fbcc80eb763";
+                const HTTP = new XMLHttpRequest();
+                HTTP.open("GET", url);
+                HTTP.send();
+                HTTP.responseType = "json";
+
+
+                HTTP.onreadystatechange= function () {
+                    if (this.readystate == 4 && this.status == 200) {
+                        resolve(HTTP.response);
+                     console.log(HTTP.response,this.readystate);
+                    } else if (this.status == 404) {
+                        reject("error:", HTTP.response)
+                    }
+                }
+                 //const response = {"status":"ok","totalResults":24898,"articles":[{"source":{"id":null,"name":"Lifehacker.com"},"author":"David Murphy","title":"How to Get Started With Apple Fitness+","description":"Apple is all about the three Ss these days: subscriptions, services, and saturation (for its new iMacs, at least). And while you can hardly blame the company for wanting to diversify its revenue, it can sometimes feel like there’s just a lot to buy from Apple…","url":"https://lifehacker.com/how-to-get-started-with-apple-fitness-1846796643","urlToImage":"https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/phm4cwupgbqsizejzotp.jpg","publishedAt":"2021-04-30T19:00:00Z","content":"Apple is all about the three Ss these days: subscriptions, services, and saturation (for its new iMacs, at least). And while you can hardly blame the company for wanting to diversify its revenue, it … [+1851 chars]"};
+                        //resolve(response);
+               });
+        }
+        function successcb (data) {
+          console.log(data)
+         document.getElementById("slot").innerHTML = data;
+        }
+        function errorcb(data){
+            document.getElementById("slot").innerHTML = data;
+        }
+        newAPIdata().then(successcb, errorcb);
+
+    </script>
+</body>
+
+</html>

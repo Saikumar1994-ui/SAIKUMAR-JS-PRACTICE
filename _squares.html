@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border-width: 2px;
+            border-style: solid;
+            background-color: powderblue;
+            width: 1200px;
+            height: 800px;
+        }
+        .square{
+            border-width: 2px;
+            border-style: solid;
+            width: 250px;
+            height: 250px;
+            margin-top: 150px;
+        }
+        .square-container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .circle{
+            border-width: 2px;
+            border-style: solid;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+        .circle-square{
+            display: flex;
+            justify-content: center;
+        }
+        .yellow{
+            background-color: yellowgreen;
+        }
+        .tomato{
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square-container">
+            <div class="square yellow" onmouseover="updateCircle(event)" onmouseout="updateCircle(event)"></div>
+            <div class="square tomato" onmouseover="updateCircle(event)" onmouseout="updateCircle(event)"></div>
+        </div>
+
+        <div class="circle-square">
+            <div class="circle"></div>
+        </div>
+    </div>
+
+    <script>
+        function updateCircle(event){
+            let circleElement = document.getElementsByClassName("circle")[0];
+            if(event.type === "mouseover"){
+                circleElement.className += ` ${event?.srcElement?.classList[1]}`;
+            }else{
+                circleElement.className = "circle"; 
+            }
+        }
+
+        let yellowSquare = document.querySelector("div.square.yellow");
+        let tomatoSquare = document.querySelector("div.square.tomato");
+
+        let events = ["mouseover","mouseout"];
+
+        for(let eventName of events){
+
+            yellowSquare.addEventListener(eventName,updateCircle);
+            tomatoSquare.addEventListener(eventName,updateCircle);
+        }
+    </script>
+</body>
+</html>

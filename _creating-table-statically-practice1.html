@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px solid red;
+            padding: 80px,70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+    </div>
+
+    <script>
+        let containerOne = document.getElementById("container");
+
+        let instituteList = [
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-77",
+                "Name": "Indian Institute Of Technology Madras",
+                "City": " Chennai",
+                "State": "Tamil Nadu",
+                "Score": "89.41",
+                "Rank": "1"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-312",
+                "Name": "Indian Institute Of Technology Bombay",
+                "City": " Bombay",
+                "State": "Maharashtra",
+                "Score": "87.66",
+                "Rank": "2"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-300",
+                "Name": "Indian Institute Of Technology Kharagpur",
+                "City": " Kharagpur",
+                "State": "West Bengal",
+                "Score": "83.91",
+                "Rank": "3"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-79",
+                "Name": "Indian Institute Of Technology New Delhi",
+                "City": " Delhi",
+                "State": "Delhi",
+                "Score": "82.02",
+                "Rank": "4"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-228",
+                "Name": "Indian Institute Of Technology Kanpur",
+                "City": " Kanpur",
+                "State": "Uttar Pradesh",
+                "Score": "81.07",
+                "Rank": "5"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-78",
+                "Name": "Indian Institute Of Technology Roorkee",
+                "City": " Roorkee",
+                "State": "Uttarakhand",
+                "Score": "78.68",
+                "Rank": "6"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-345",
+                "Name": "Indian Institute Of Technology Hyderabad",
+                "City": " Hyderabad",
+                "State": "Telangana",
+                "Score": "77.22",
+                "Rank": "7"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-298",
+                "Name": "Indian Institute Of Technology Gandhinagar",
+                "City": " Gandhinagar",
+                "State": "Gujarat",
+                "Score": "75.20",
+                "Rank": "8"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-340",
+                "Name": "Indian Institute Of Technology Ropar-Rupnagar",
+                "City": " Ropar-Rupnagar",
+                "State": "Punjab",
+                "Score": "74.88",
+                "Rank": "9"
+            },
+            {
+                "INSTITUTEID": "NIRF-ENGG-INF-344",
+                "Name": "Indian Institute Of Technology Patna",
+                "City": " Patna",
+                "State": "Bihar",
+                "Score": "74.68",
+                "Rank": "10"
+            }
+        ];
+
+
+        function tRow() {
+            let row = "";
+            let arrayLength = instituteList.length - 1;
+            for (i = 0; i <= arrayLength; i++) {
+                let array = instituteList[i];
+                row += `<tr>
+            <td>${i + 1}</td>
+            <td>${array.INSTITUTEID}</td>
+            <td>${array.Name}</td>
+            <td>${array.City}</td>
+            <td>${array.State}</td>
+            <td>${array.Score}</td>
+            <td>${array.Rank}</td>
+            </tr>`;
+            }
+            return row;
+        }
+
+        function tbody() {
+            return `<body>${tRow()}</body>`;
+        }
+
+        function thead() {
+            return `<head>
+                          <tr>
+                            <th>S.NO</th>
+                            <th>INSTITUTE ID</th>
+                            <th>NAME OF THE ISTITUTE</th>
+                            <th>CITY</th>
+                            <th>STATE</th>
+                            <th>SCORE</th>
+                            <th>RANK</th>
+                           </tr>
+                   </thead>`;
+
+        }
+
+        function tbl() {
+            return `<table>${thead()}${tbody()}</table>`;
+
+        }
+        containerOne.innerHTML = tbl();
+    </script>
+</body>
+
+</html>

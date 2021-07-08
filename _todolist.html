@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 2px solid red;
+            padding: 20px,23px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div>
+        <label for="sname">STUDENT NAME</label>
+        <input type="text"id="sname" name="name" placeholder="enter here">
+        <button onclick="addstudent()">ENTER</button>
+    </div>
+    <div id="container">
+    </div>
+
+    <script>
+        let inputElement = document.getElementById("sname");
+        let divElement = document.getElementById("container");
+        let studentList =[];
+
+        function addstudent(){
+            let inputVal = inputElement.value;
+            console.log(inputVal)
+            studentList.push(inputVal);
+            inputElement.value ="";
+            displayTable();
+            
+        };
+
+        function removeStudent(index){
+            studentList.splice(index,1);
+            displayTable();
+
+        };
+
+        function displayTable(){
+            let rows = "";
+            for (i=0; i<=studentList.length-1; i++){
+                let removeButton = `<button onclick="removeStudent(${i})">REMOVE</button>`
+                rows +=`<tr><td>${i+1}</td><td>${studentList[i]}</td><td>${removeButton}</td></tr>`
+            }
+
+            let tbody = `<tbody>${rows}</tbody>`
+            let thead = `<thead><tr><th>S.NO</th><th>  NAME OF THE STUDENT </th><th>ACTION</th></tr></thead>`
+            let table = `<table>${thead}${tbody}</table>`
+          
+            divElement.innerHTML = table;
+
+            
+            
+        }
+       
+    </script>
+</body>
+</html>
