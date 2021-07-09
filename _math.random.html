@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3by3 table random numbers</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        tr,td{
+            border-collapse: collapse;
+            border: 2px solid pink;
+            padding: 35px 50px;
+        }
+        button{
+            background-color: purple;
+            color: white;
+            font-size: 20px;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+<body >
+    <div class="container">
+
+        <button>Change value</button>
+        <button>calculationButton</button>
+        <div class="table-container">
+
+        </div>
+    </div>
+
+    <p>Sum of the Horizontal lines <span id="horizontalRowsCount">0</span></p>
+    <p>Sum of the Vertical lines <span id="varticalRowsCount">0</span></p>
+    <p>multiplication of Horizontal and vertical lines <span id="totalMulVal">0</span></p>
+
+
+    <script src="./_math.random.js"></script>
+</body>
+</html>

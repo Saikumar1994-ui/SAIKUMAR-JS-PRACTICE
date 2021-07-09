@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get fuulname</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 2px solid tomato;
+            padding: 30px,40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+    </div>
+
+    <script>
+        let divElement = document.getElementById("container");
+
+        function getFullName() {
+            let self = this;
+            return self?.firstname +""+ self?.lastname
+        };
+
+        let studentOne = {
+            firstname: "Ganesh",
+            lastname: "babu",
+            marks: 85,
+            fullName: getFullName
+        };
+        let studentTwo = {
+            firstname: "Sai",
+            lastname: "babu",
+            marks: 95,
+            fullName: getFullName
+        };
+        let studentThree = {
+            firstname: "Suresh",
+            lastname: "babu",
+            marks: 75,
+            fullName: getFullName
+        };
+        let studentFour = {
+            firstname: "Ramesh",
+            lastname: "babu",
+            marks: 65,
+            fullName: getFullName
+        };
+        let studentfive = {
+            firstname: "prakash",
+            lastname: "babu",
+            marks: 70,
+            fullName: getFullName
+        };
+
+        let studentsList = [studentOne,studentTwo,studentThree,studentFour,studentfive];
+
+        const trow =()=>{
+            let row ="";
+            let arrayLength = studentsList.length-1;
+         for(i=0; i<=arrayLength; i++){
+             let student = studentsList[i];
+             row +=`<tr><td>${i+1}</td><td>${student.fullName()}</td><td>${student.marks}</td></tr>`;
+         }
+         return row;
+        
+        }
+
+        const tbdy=()=>{
+            return `<tbody>${trow()}</tbody>`;
+        }
+
+        const thd =()=>{
+            return `<thead><tr><th>S.NO</th><th> NAME OF THE STUDENT </th><th> STUDENT MARKS</th></tr></thead>`;
+        }
+        const tbl =()=>{
+            return `<table>${thd()}${tbdy()}</table>`;
+        }
+        
+
+        divElement.innerHTML = tbl();
+
+        
+    </script>
+</body>
+</html>

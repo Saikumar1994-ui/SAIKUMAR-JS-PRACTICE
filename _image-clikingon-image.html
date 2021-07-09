@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clickin on image display that image</title>
+    <style>
+        .img {
+            width: 200px;
+            height: 300px;
+            background-color: coral;
+            border: 2px solid black;
+        }
+
+        li {
+            display: inline-block;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img">
+        <img id="imagecontainer" alt="image showing" width="200px" height="300px">
+    </div>
+    <div>
+        <ul>
+            <li> <img src="../images/cartoonboy1.jpg" width="200px" height="300px" onclick="showImage('boy1')"/> </li>
+            <li><img src="../images/cartoonboy2.jpg" width="200px" height="300px" onclick="showImage('boy2')"/> </li>
+            <li> <img src="../images/cartoonboy3.jpg" width="200px" height="300px" onclick="showImage('boy3')"/> </li>
+        </ul>
+
+    </div>
+
+    <script>
+        function showImage(imageName){
+            document.getElementById("imagecontainer").src="../images/cartoon"+ imageName +".jpg";
+
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>amimals images slideshow</title>
+    <style>
+        li{
+            display: inline-block;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul id="container">
+        </ul>
+    </div>
+
+    <script>
+        let animalsListElement = document.getElementById("container");
+        let animalsList =["animal1.jpg","animal2.jpg","animal3.jpg","animal4.jpg","animal5.jpg","animal6.jpg","animal7.jpg","animal8.jpg","animal9.jpg","animal10.jpg",];
+        let firstElementindex =0;
+        const displayImagesCount =9;
+
+        function createList(){
+            let listImeges ="";
+            for(let i=firstElementindex, imageCount=0; i<=animalsList.length-1; i++,imageCount++){
+                if(imageCount == displayImagesCount){
+                    break;
+                }
+                listImeges += `<li><img src="../Images/${animalsList[i]}" width="200px" height="300px" onclick="showImage('1')"/></li>`
+            }
+            return listImeges;
+        }
+
+        function displayImage(){
+
+            animalsListElement.innerHTML ="";
+            animalsListElement.innerHTML =` 
+            <li><img src="../images/leftside1.png" width="200px" height="70px" onclick="move('left')"/></li>
+            ${createList()}
+            <li><img src="../images/rightside1.png" width="200px" height="70px" onclick="move('right')"/></li>`
+
+        }
+
+        function move(direction){
+            if(direction=="left"){
+                firstElementindex +=1;
+                displayImage();
+            }else{
+                firstElementindex -=1;
+                displayImage();
+
+            }
+        }
+        displayImage();
+
+    </script>
+</body>
+</html>

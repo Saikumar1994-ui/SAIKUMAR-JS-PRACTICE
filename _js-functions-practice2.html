@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* function unit(){
+            var name = "Mozillaa" // name is a local avriable created by unit//
+            function displayName(){
+                alert(name);
+            }
+            displayName();
+        }
+        unit(); */ //======================================================================== //
+
+       /* function unit(){
+            var name = "Mozillaa" // name is a local avriable created by unit//
+            function displayName(){
+                alert(name);
+            }
+                 return displayName;
+        }
+          var myfunc = unit();
+          myfunc(); */  //============================================================== //
+
+
+
+          function makeAdder(x){
+              return function (y){
+                  return x+y;
+              }
+          }
+
+          var add5 = makeAdder(5);
+          var add10 = makeAdder (10);
+
+          console.log(add5(2));
+          console.log(add10(4));
+
+ 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images display statically</title>
+    <style>
+        .img {
+            width: 200px;
+            height: 300px;
+            background-color: peru;
+            border: 2px solid red;
+        }
+
+        li {
+            display: inline-block;
+            border: 2px solid plum;
+        }
+    </style>
+</head>
+
+<body>
+   <!---- <div class="img">
+       <img id="imageslot" alt="image showing" width="200px" height="300px">
+    </div> ---->
+    <div>
+        <ul id="imagecontainer">
+
+        </ul>
+    </div>
+
+    <script>
+        let imgListElement = document.getElementById("imagecontainer");
+        let imagesList = ["smileface1.jpg", "smileface2.jpg", "smileface3.jpg", "smileface4.jpg", "smileface5.jpg", "smileface6.jpg",]
+        let firstElementindex = 0;
+        const displayImagescount = 5;
+
+        function createList() {
+            let listItem = "";
+
+            for (let i = firstElementindex, imageCount = 0; i <= imagesList.length - 1; i++, imageCount++) {
+                if (imageCount == displayImagescount) {
+                    break;
+                }
+                listItem += `<li><img src="../images/${imagesList[i]}" width="200px" height="300px" onclick="showImage('1')"/></li>`
+           /* <li><img src="../images/smileface2.jpg" width="200px" height="300px" onclick="showImage('2')"/></li>
+            <li><img src="../images/smileface3.jpg" width="200px" height="300px" onclick="showImage('3')"/></li>
+            <li><img src="../images/smileface4.jpg" width="200px" height="300px" onclick="showImage('4')"/></li>
+            <li><img src="../images/smileface5.jpg" width="200px" height="300px" onclick="showImage('5')"/></li>
+            <li><img src="../images/smileface6.jpg" width="200px" height="300px" onclick="showImage('6')"/></li>`
+            console.log(listItem);*/
+
+            }
+            return listItem;
+        }
+
+        function displayItemRow(){
+            imgListElement.innerHTML ="";
+            imgListElement.innerHTML +=
+            `<li><img src="../images/leftside1.png" width="70px" height="100px" onclick="move('left')"></li>
+            ${createList()}
+           
+            <li><img src="../images/rightside1.png" width="70px" height="100px" onclick="move('right')"></li>`;
+        }
+
+        function move(direction){
+            if(direction=="left"){
+                firstElementindex +=1;
+                displayItemRow();
+            }else{
+                firstElementindex -=1;
+                displayItemRow();
+            }
+        }
+
+        displayItemRow();
+    </script>
+</body>
+
+</html>

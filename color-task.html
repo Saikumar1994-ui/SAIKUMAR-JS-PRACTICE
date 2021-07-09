@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>color task</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <style>
+        td {
+            height: 100px;
+            width: 100px;
+            border: 1px solid;
+            text-align: center;
+            font-size: 30px;
+        }
+        tr.td:nth-child(2){
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table id="table">
+
+        <tr>
+            <td style="background-color:red;">
+                red
+            </td>
+            <td style="background-color:red;">
+                green
+            </td>
+            <td style="background-color:red;">
+                pink
+            </td>
+            <td style="background-color:red;">
+                yellow
+            </td>
+            <td style="background-color:red;">
+                brown
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:red;">
+                red
+            </td>
+            <td style="background-color:red;">
+                green
+            </td>
+            <td style="background-color:red;">
+                pink
+            </td>
+            <td style="background-color:red;">
+                yellow
+            </td>
+            <td style="background-color:red;">
+                brown
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:red;">
+                red
+            </td>
+            <td style="background-color:red;">
+                green
+            </td>
+            <td style="background-color:red;">
+                pink
+            </td>
+            <td style="background-color:red;">
+                yellow
+            </td>
+            <td style="background-color:red;">
+                brown
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:red;">
+                red
+            </td>
+            <td style="background-color:red;">
+                green
+            </td>
+            <td style="background-color:red;">
+                pink
+            </td>
+            <td style="background-color:red;">
+                yellow
+            </td>
+            <td style="background-color:red;">
+                brown
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color:red;">
+                red
+            </td>
+            <td style="background-color:red;">
+                green
+            </td>
+            <td style="background-color:red;">
+                pink
+            </td>
+            <td style="background-color:red;">
+                yellow
+            </td>
+            <td style="background-color:red;">
+                brown
+            </td>
+        </tr>
+    </table>
+    <script>
+       /* let table=document.getElementById("table");
+
+
+        let row ="";
+        for(i=1; i<=5; i++){
+            let col="";
+            for(j=1; j<=5; j++){
+                if(i==1 && j==1){
+                    //console.log("red");
+                    col =`<td style="background-color:red;">Red</td>`;
+                }else if(i==2 && j==1){
+                   // console.log("red");
+                    col =`<td style="background-color:red;">Red</td>`;
+                }else if(i==3 && j==1){
+                    //console.log("red");
+                    col =`<td style="background-color:red;">Red</td>`;
+                }else if(i==4 && j==1){
+                    //console.log("red");
+                    col =`<td style="background-color:red;">Red</td>`;
+                }else if(i==5 && j==1){
+                   // console.log("red");
+                    col =`<td style="background-color:red;">Red</td>`;
+                }else{
+                   // console.log("white");
+                    col  +=`<td style="background-color:white;">White</td>`;
+                            
+                }
+            }
+            row += `<tr>${col}</tr>`;
+        }
+
+        document.getElementById("table").innerHTML= row;*/
+
+    let tdElemetnts = document.querySelectorAll("td");
+    for(let tdElement of tdElemetnts){
+        if(tdElement.innerText !== tdElement.style.backgroundColor){
+            tdElement.style.backgroundColor = "transparent"
+        }
+
+        
+    }
+
+
+      
+   
+
+
+    
+    
+    </script>
+</body>
+
+</html>
